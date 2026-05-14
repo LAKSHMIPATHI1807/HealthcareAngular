@@ -17,6 +17,6 @@ export class DoctorService {
   }
 
   getAllDoctors(): Observable<any> {
-    return this.http.get("http://localhost:5063/HMS/doctors/GetAllDoctors",this.getHeaders());
+    return this.http.get("https://doctorapi-bmazacbtbyh3fqaq.centralus-01.azurewebsites.net/HMS/doctors/GetAllDoctors",this.getHeaders());
   }
 }

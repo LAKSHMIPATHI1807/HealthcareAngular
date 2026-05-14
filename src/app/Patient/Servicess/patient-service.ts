@@ -18,26 +18,26 @@ export class PatientService {
   }
 
   addPatient(patient: Patient): Observable<any> {
-    return this.http.post("http://localhost:5063/HMS/patients/AddPatient", patient, this.getHeaders());
+    return this.http.post("https://patientapi-fbdpg4gnc9fdcad5.centralus-01.azurewebsites.net/HMS/patients/AddPatient", patient, this.getHeaders());
   }
 
   getAllPatients(): Observable<ReadPatient[]> {
-    return this.http.get<ReadPatient[]>("http://localhost:5063/HMS/patients/GetAllPatients", this.getHeaders());
+    return this.http.get<ReadPatient[]>("https://patientapi-fbdpg4gnc9fdcad5.centralus-01.azurewebsites.net/HMS/patients/GetAllPatients", this.getHeaders());
   }
 
   getPatientById(id: number): Observable<ReadPatient> {
-    return this.http.get<ReadPatient>(`http://localhost:5063/HMS/patients/GetPatientById/${id}`,this.getHeaders());
+    return this.http.get<ReadPatient>(`https://patientapi-fbdpg4gnc9fdcad5.centralus-01.azurewebsites.net/HMS/patients/GetPatientById/${id}`,this.getHeaders());
   }
 
   getPatientByName(name: string): Observable<ReadPatient> {
-    return this.http.get<ReadPatient>(`http://localhost:5063/HMS/patients/GetPatientByName/${name}`,this.getHeaders());
+    return this.http.get<ReadPatient>(`https://patientapi-fbdpg4gnc9fdcad5.centralus-01.azurewebsites.net/HMS/patients/GetPatientByName/${name}`,this.getHeaders());
   }
 
   updatePatient(id: number, patient: Patient): Observable<any> {
-    return this.http.put(`http://localhost:5063/HMS/patients/UpdatePatientById/${id}`, patient, this.getHeaders());
+    return this.http.put(`https://patientapi-fbdpg4gnc9fdcad5.centralus-01.azurewebsites.net/HMS/patients/UpdatePatientById/${id}`, patient, this.getHeaders());
   }
 
   deletePatient(id: number): Observable<any> {
-    return this.http.delete(`http://localhost:5063/HMS/patients/DeletePatientById/${id}`, this.getHeaders());
+    return this.http.delete(`https://patientapi-fbdpg4gnc9fdcad5.centralus-01.azurewebsites.net/HMS/patients/DeletePatientById/${id}`, this.getHeaders());
   }
 }

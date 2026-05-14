@@ -17,15 +17,15 @@ export class AppointmentService {
   }
 
    viewDoctorAppointments(id: number): Observable<any> {
-    return this.http.get(`http://localhost:5063/HMS/appointments/GetAppointmentsByDoctorId/${id}`)
+    return this.http.get(`https://appointmentapi-dcazcxgcfdhbb9hu.centralus-01.azurewebsites.net/HMS/appointments/GetAppointmentsByDoctorId/${id}`)
   }
 
    cancelAppointment(id: number): Observable<any> {
-    return this.http.put(`http://localhost:5063/HMS/appointments/CancelAppointment/${id}`,{},this.getHeaders());
+    return this.http.put(`https://appointmentapi-dcazcxgcfdhbb9hu.centralus-01.azurewebsites.net/HMS/appointments/CancelAppointment/${id}`,{},this.getHeaders());
   }
 
   completeAppointment(id:number): Observable<any> {
-    return this.http.put(`http://localhost:5063/HMS/appointments/CompleteAppointment/${id}`,{},this.getHeaders());
+    return this.http.put(`https://appointmentapi-dcazcxgcfdhbb9hu.centralus-01.azurewebsites.net/HMS/appointments/CompleteAppointment/${id}`,{},this.getHeaders());
     
   }
 }

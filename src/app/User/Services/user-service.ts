@@ -9,10 +9,10 @@ import { LoginUser,RegisterUser,LoginResponse } from '../Models/user';
 export class UserService {
   constructor(private http: HttpClient) {};
   register(data: RegisterUser): Observable<any> {
-    return this.http.post("http://localhost:5063/HMS/users/register",data)
+    return this.http.post("https://userserviceapi-hnb7gmfcebejasgu.centralus-01.azurewebsites.net/HMS/users/register",data)
   }
 
   login(data: LoginUser) {
-    return this.http.post<LoginResponse>("http://localhost:5063/HMS/users/login",data)
+    return this.http.post<LoginResponse>("https://userserviceapi-hnb7gmfcebejasgu.centralus-01.azurewebsites.net/HMS/users/login",data)
   }
 }
