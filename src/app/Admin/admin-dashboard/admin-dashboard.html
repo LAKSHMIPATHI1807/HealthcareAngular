@@ -1,0 +1,166 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm px-4 py-3">
+  <a class="navbar-brand fw-bold fs-4">
+    Healthcare Appointment & Patient Management System
+  </a>
+
+  <div class="ms-auto">
+    <button class="btn btn-light fw-semibold px-4" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</nav>
+
+<div class="d-flex">
+
+  <div class="bg-dark text-white p-4 vh-100 shadow" style="width: 260px;">
+
+    <h4 class="text-center fw-bold mb-5 border-bottom pb-3">
+      Admin Dashboard
+    </h4>
+
+    <ul class="nav flex-column gap-3">
+
+      <li class="nav-item">
+        <a routerLink="/view-doctors"
+           class="nav-link text-white bg-secondary rounded px-3 py-2">
+          <i class="bi bi-person-badge me-2"></i>
+          Doctors
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/view-all-appointments"
+           class="nav-link text-white bg-secondary rounded px-3 py-2">
+          <i class="bi bi-calendar-check me-2"></i>
+          Appointments
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/view-all-patients"
+           class="nav-link text-white bg-secondary rounded px-3 py-2">
+          <i class="bi bi-people me-2"></i>
+          Patients
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="container-fluid p-4 bg-light min-vh-100">
+
+    <div class="card border-0 shadow-lg rounded-4 mb-4">
+
+      <div class="card-body p-4">
+
+        <h2 class="fw-bold text-primary">
+          Welcome, {{username}}
+        </h2>
+      </div>
+
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+
+        <div class="card border-0 shadow rounded-4 h-100">
+
+          <div class="card-body text-center p-4">
+
+            <h5 class="text-primary fw-bold">
+              Total Doctors
+            </h5>
+
+            <h1 class="display-5 fw-bold">
+              {{totalDoctors}}
+            </h1>
+
+            <a routerLink="/view-doctors"
+               class="btn btn-primary mt-3">
+              View Doctors
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="card border-0 shadow rounded-4 h-100">
+
+          <div class="card-body text-center p-4">
+
+            <h5 class="text-danger fw-bold mb-3">
+              Appointment Statistics
+            </h5>
+
+            <div class="mb-3">
+              <h6>Total Appointments</h6>
+              <h2 class="fw-bold">{{totalAppointments}}</h2>
+            </div>
+
+            <div class="mb-3">
+              <h6>Scheduled</h6>
+              <h3 class="fw-bold text-primary">
+                {{totalBooked}}
+              </h3>
+            </div>
+
+            <div class="mb-3">
+              <h6>Completed</h6>
+              <h3 class="fw-bold text-success">
+                {{totalCompleted}}
+              </h3>
+            </div>
+
+            <div>
+              <h6>Cancelled</h6>
+              <h3 class="fw-bold text-danger">
+                {{totalCancelled}}
+              </h3>
+            </div>
+
+            <a routerLink="/view-all-appointments"
+               class="btn btn-success mt-3">
+              View Appointments
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="card border-0 shadow rounded-4 h-100">
+
+          <div class="card-body text-center p-4">
+
+            <h5 class="text-success fw-bold">
+              Total Patients
+            </h5>
+
+            <h1 class="display-5 fw-bold">
+              {{totalPatients}}
+            </h1>
+
+            <a routerLink="/view-all-patients"
+               class="btn btn-warning mt-3 text-white">
+              View Patients
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

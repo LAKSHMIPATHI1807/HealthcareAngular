@@ -1,0 +1,131 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm px-4 py-3">
+
+    <a class="navbar-brand fw-bold fs-4">
+        Healthcare Appointment & Patient Management System
+    </a>
+
+</nav>
+
+<div class="container py-5">
+
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold text-primary mb-1">
+                Doctors Management
+            </h2>
+
+            <p class="text-muted mb-0">
+                View and manage all registered doctors
+            </p>
+
+        </div>
+
+        <a routerLink="/admin-dashboard"
+           class="btn btn-outline-primary rounded-pill px-4">
+
+            <i class="bi bi-arrow-left-circle me-2"></i>
+            Dashboard
+
+        </a>
+
+    </div>
+
+    <!-- Main Card -->
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+        <!-- Card Header -->
+        <div class="card-header bg-primary text-white py-3">
+
+            <h5 class="mb-0 fw-semibold">
+                Doctors List
+            </h5>
+
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body p-4">
+
+            <!-- No Data -->
+            <div *ngIf="doctors.length == 0"
+                 class="alert alert-warning text-center rounded-3">
+
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+
+                No Doctors Found
+
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive">
+
+                <table *ngIf="doctors.length > 0"
+                       class="table table-hover align-middle text-center">
+
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            <th>Doctor ID</th>
+
+                            <th>Name</th>
+
+                            <th>Specialization</th>
+
+                            <th>Available Time Slot</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let item of doctors">
+
+                            <td class="fw-semibold">
+                                {{item.doctorId}}
+                            </td>
+
+                            <td>
+                                {{item.name}}
+                            </td>
+
+                            <td>
+                                <span class="badge bg-info text-dark px-3 py-2">
+                                    {{item.speicalization}}
+                                </span>
+                            </td>
+
+                            <td>
+                                {{item.availableTimeSlot}}
+                            </td>
+
+                            <td>
+
+                                <button class="btn btn-danger btn-sm px-3 rounded-pill"
+                                        (click)="delete(item.doctorId)">
+
+                                    <i class="bi bi-trash-fill me-1"></i>
+                                    Delete
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,181 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm px-4 py-3">
+
+  <a class="navbar-brand fw-bold fs-4">
+    Healthcare Appointment & Patient Management System
+  </a>
+
+</nav>
+
+<div class="container py-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-lg-7 col-md-9">
+
+      <!-- Card -->
+      <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+        <!-- Header -->
+        <div class="bg-primary text-white text-center p-4">
+
+          <div class="mb-3">
+
+            <i class="bi bi-heart-pulse-fill"
+               style="font-size: 4rem;"></i>
+
+          </div>
+
+          <h2 class="fw-bold mb-1">
+            Add Doctor Details
+          </h2>
+
+          <p class="mb-0">
+            Enter doctor information carefully
+          </p>
+
+        </div>
+
+        <!-- Body -->
+        <div class="card-body p-5">
+
+          <!-- Success Message -->
+          <div *ngIf="message"
+               class="alert alert-success rounded-3 text-center">
+
+            {{message}}
+
+          </div>
+
+          <!-- Form -->
+          <form #addForm="ngForm"
+                (ngSubmit)="add(addForm)">
+
+            <!-- Name -->
+            <div class="mb-4">
+
+              <label class="form-label fw-semibold">
+                Doctor Name
+              </label>
+
+              <input type="text"
+                     class="form-control form-control-lg rounded-3"
+                     name="name"
+                     [(ngModel)]="doctor.name"
+                     placeholder="Enter Doctor Name"
+                     required
+                     #name="ngModel">
+
+              <div class="text-danger small mt-2"
+                   *ngIf="name.invalid && name.touched">
+
+                Name is required
+
+              </div>
+
+            </div>
+
+            <!-- Specialization -->
+            <div class="mb-4">
+
+              <label class="form-label fw-semibold">
+                Specialization
+              </label>
+
+              <select name="speicalization"
+                      [(ngModel)]="doctor.speicalization"
+                      class="form-select form-select-lg rounded-3"
+                      required
+                      #specialization="ngModel">
+
+                <option value="">
+                  Select Specialization
+                </option>
+
+                <option value="Cardiology">
+                  Cardiology
+                </option>
+
+                <option value="Pediatrics">
+                  Pediatrics
+                </option>
+
+                <option value="Radiology">
+                  Radiology
+                </option>
+
+                <option value="General Surgeon">
+                  General Surgeon
+                </option>
+
+              </select>
+
+              <div class="text-danger small mt-2"
+                   *ngIf="specialization.invalid && specialization.touched">
+
+                Specialization is required
+
+              </div>
+
+            </div>
+
+            <!-- Available Time Slot -->
+            <div class="mb-4">
+
+              <label class="form-label fw-semibold">
+                Available Time Slot
+              </label>
+
+              <input type="text"
+                     class="form-control form-control-lg rounded-3"
+                     name="availableTimeSlot"
+                     [(ngModel)]="doctor.availableTimeSlot"
+                     placeholder="Example: 10 AM - 5 PM"
+                     required
+                     #availabletimeslot="ngModel">
+
+              <div class="text-danger small mt-2"
+                   *ngIf="availabletimeslot.invalid && availabletimeslot.touched">
+
+                Available Time Slot is required
+
+              </div>
+
+            </div>
+
+            <!-- Button -->
+            <div class="d-grid mb-3">
+
+              <button class="btn btn-success btn-lg rounded-3 fw-semibold"
+                      [disabled]="addForm.invalid">
+
+                <i class="bi bi-person-plus-fill me-2"></i>
+                Add Doctor
+
+              </button>
+
+            </div>
+
+            <!-- Back -->
+            <div class="text-center">
+
+              <a routerLink="/doctor-dashboard"
+                 class="text-decoration-none fw-semibold text-primary">
+
+                <i class="bi bi-arrow-left-circle me-1"></i>
+                Back to Dashboard
+
+              </a>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

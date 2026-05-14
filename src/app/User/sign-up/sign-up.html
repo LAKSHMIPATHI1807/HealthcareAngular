@@ -1,0 +1,174 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm px-4 py-3">
+
+  <a class="navbar-brand fw-bold fs-4">
+    Healthcare Appointment & Patient Management System
+  </a>
+
+  <div class="ms-auto d-flex gap-2">
+
+    <a routerLink="/" class="btn btn-outline-light px-4">
+      Home
+    </a>
+
+    <a routerLink="/login" class="btn btn-light text-primary fw-semibold px-4">
+      Login
+    </a>
+
+  </div>
+
+</nav>
+
+<!-- Register Section -->
+<div class="container py-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-7 col-lg-5">
+
+      <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+        <!-- Header -->
+        <div class="bg-primary text-white text-center p-4">
+
+          <h2 class="fw-bold mb-1">
+            Create Account
+          </h2>
+
+          <p class="mb-0">
+            Register to access the HMS Portal
+          </p>
+
+        </div>
+
+        <!-- Body -->
+        <div class="card-body p-5">
+
+          <div *ngIf="message"
+               class="alert alert-success text-center rounded-3">
+
+            {{message}}
+
+          </div>
+
+          <form #registerform="ngForm"
+                (ngSubmit)="register(registerform)">
+
+            <!-- Username -->
+            <div class="mb-4">
+
+              <label class="form-label fw-semibold">
+                Username
+              </label>
+
+              <input type="text"
+                     name="username"
+                     class="form-control form-control-lg rounded-3"
+                     placeholder="Enter Username"
+                     [(ngModel)]="user.username"
+                     required
+                     minlength="3"
+                     #username="ngModel">
+
+              <div class="text-danger small mt-2"
+                   *ngIf="username.invalid && username.touched">
+
+                Username must be at least 3 characters
+
+              </div>
+
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+
+              <label class="form-label fw-semibold">
+                Password
+              </label>
+
+              <input type="password"
+                     name="password"
+                     class="form-control form-control-lg rounded-3"
+                     placeholder="Enter Password"
+                     [(ngModel)]="user.password"
+                     required
+                     minlength="6"
+                     #password="ngModel">
+
+              <div class="text-danger small mt-2"
+                   *ngIf="password.invalid && password.touched">
+
+                Password must be at least 6 characters
+
+              </div>
+
+            </div>
+
+            <!-- Role -->
+            <div class="mb-4">
+
+              <label class="form-label fw-semibold">
+                Select Role
+              </label>
+
+              <select name="role"
+                      class="form-select form-select-lg rounded-3"
+                      [(ngModel)]="user.role"
+                      required
+                      #role="ngModel">
+
+                <option value="">Choose Role</option>
+                <option value="Admin">Admin</option>
+                <option value="Doctor">Doctor</option>
+                <option value="Patient">Patient</option>
+
+              </select>
+
+              <div class="text-danger small mt-2"
+                   *ngIf="role.invalid && role.touched">
+
+                Please select a role
+
+              </div>
+
+            </div>
+
+            <!-- Button -->
+            <div class="d-grid mb-3">
+
+              <button type="submit"
+                      class="btn btn-primary btn-lg rounded-3 fw-semibold"
+                      [disabled]="registerform.invalid">
+
+                Register
+
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="card-footer bg-white text-center py-3 border-0">
+
+          <span class="text-muted">
+            Already have an account?
+          </span>
+
+          <a routerLink="/login"
+             class="text-primary fw-semibold text-decoration-none ms-1">
+
+            Login Here
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
